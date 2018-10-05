@@ -48,18 +48,14 @@ use Cake\Utility\Security;
  * Uncomment block of code below if you want to use `.env` file during development.
  * You should copy `config/.env.default to `config/.env` and set/modify the
  * variables as required.
- *
- * It is HIGHLY discouraged to use a .env file in production, due to security risks
- * and decreased performance on each request. The purpose of the .env file is to emulate
- * the presence of the environment variables like they would be present in production.
  */
-// if (!env('APP_NAME') && file_exists(CONFIG . '.env')) {
-//     $dotenv = new \josegonzalez\Dotenv\Loader([CONFIG . '.env']);
-//     $dotenv->parse()
-//         ->putenv()
-//         ->toEnv()
-//         ->toServer();
-// }
+if (!env('APP_NAME') && file_exists(CONFIG . '.env')) {
+    $dotenv = new \josegonzalez\Dotenv\Loader([CONFIG . '.env']);
+    $dotenv->parse()
+        ->putenv()
+        ->toEnv()
+        ->toServer();
+}
 
 /*
  * Read configuration file and inject configuration into various
@@ -81,7 +77,20 @@ try {
  * You can use a file like app_local.php to provide local overrides to your
  * shared configuration.
  */
-//Configure::load('app_local', 'default');
+if (file_exists(__DIR__ . DS . 'environments' . DS . 'common.php')) {
+    Configure::load('environments/common', 'default');
+}
+switch (env('CAKE_ENV', 'development')) {
+    case 'production':
+        Configure::load('environments/production', 'default');
+        break;
+    case 'staging':
+        Configure::load('environments/staging', 'default');
+        break;
+    case 'development':
+        Configure::load('environments/development', 'default');
+        break;
+}
 
 /*
  * When debug = true the metadata cache should only last
@@ -96,7 +105,7 @@ if (Configure::read('debug')) {
 
 /*
  * Set the default server timezone. Using UTC makes time calculations / conversions easier.
- * Check http://php.net/manual/en/timezones.php for list of valid timezone strings.
+ * Check http://php.net/manual/ja/timezones.php for list of valid timezone strings.
  */
 date_default_timezone_set(Configure::read('App.defaultTimezone'));
 
@@ -181,7 +190,7 @@ ServerRequest::addDetector('tablet', function ($request) {
  * You can enable default locale format parsing by adding calls
  * to `useLocaleParser()`. This enables the automatic conversion of
  * locale specific date formats. For details see
- * @link https://book.cakephp.org/3.0/en/core-libraries/internationalization-and-localization.html#parsing-localized-datetime-data
+ * @link https://book.cakephp.org/3.0/ja/core-libraries/internationalization-and-localization.html#parsing-localized-datetime-data
  */
 Type::build('time')
     ->useImmutable();
@@ -201,3 +210,33 @@ Type::build('timestamp')
 //Inflector::rules('irregular', ['red' => 'redlings']);
 //Inflector::rules('uninflected', ['dontinflectme']);
 //Inflector::rules('transliteration', ['/å/' => 'aa']);
+
+/*
+ * CakePHP AdminLTE Theme
+ * https://github.com/maiconpinto/cakephp-adminlte-theme
+ */
+Plugin::load('AdminLTE', ['bootstrap' => true, 'routes' => true]);
+Configure::write('Theme', [
+    'title' => 'AdminLTE',
+    'logo' => [
+        'mini' => '<b>A</b>LT',
+        'large' => '<b>Admin</b>LTE'
+    ],
+    'login' => [
+        'show_remember' => true,
+        'show_register' => false,
+        'show_social' => false
+    ],
+    'folder' => ROOT,
+    'skin' => 'blue' // default is 'blue'
+]);
+/*
+ * CakePHP Tools Plugin
+ * https://github.com/dereuromark/cakephp-tools
+ */
+Plugin::load('Tools', ['bootstrap' => true]);
+/*
+ * CakePHP Tools Plugin
+ * https://github.com/FriendsOfCake/cakephp-upload
+ */
+Plugin::load('Josegonzalez/Upload');

@@ -1,0 +1,195 @@
+# https://circleci.com/docs/2.0/configuration-reference/#section=configuration
+version: 2.1
+
+# -------------
+# デプロイ処理を実行する各ブランチ設定
+# -------------
+deploy_branches:
+  # ------
+  # ステージング環境へのデプロイ処理を実行するブランチ
+  # ------
+  staging: &staging_deploy_branches
+    - staging
+    # - develop
+    # - /feature-.*/
+    # - /release-.*/
+  # ------
+  # 本番環境へのデプロイ処理を実行するブランチ
+  # ------
+  production: &production_deploy_branches
+    - master
+
+# -------------
+# デプロイ処理で利用するSSH鍵のフィンガープリントの設定
+# -------------
+deploy_ssh_keys: &deploy_ssh_keys
+  # 以下にCircle CIに登録しているSSH鍵のフィンガープリントを設定する
+  - "00:11:22:33:44:55:66:77:88:99:aa:bb:cc:dd:ee:ff"
+
+# -------------
+# デフォルトの動作環境
+# ※executorsに定義されている環境のうちデフォルトで利用する環境を設定する
+# -------------
+default_executor: &default_executor php72
+
+# -------------
+# 動作環境の設定
+# -------------
+executors:
+  php72:
+    docker:
+      # https://hub.docker.com/u/circleci/
+      - image: circleci/php:7.2-node-browsers
+      # - image: circleci/mysql:5.7-ram
+    working_directory: ~/repo
+  php71:
+    docker:
+      # https://hub.docker.com/u/circleci/
+      - image: circleci/php:7.1-node-browsers
+      # - image: circleci/mysql:5.7-ram
+    working_directory: ~/repo
+
+# -------------
+# 共有するコマンド
+# -------------
+commands:
+  before_deploy:
+    description: デプロイの前処理
+    steps:
+      - install_ansible
+      - add_ssh_keys:
+          fingerprints: *deploy_ssh_keys
+  execute_test:
+    description: 各種テストの実行
+    steps:
+      - run:
+          name: 各種テストおよびドキュメントの出力処理を実行
+          command: |
+            composer run check
+            composer run doc
+            composer run metrics
+      ## ------
+      ## 各ステップを分離する場合は、
+      ## 上記の処理をコメントアウトし、以下の処理を有効にする
+      ## ------
+      # - run:
+      #     name: チェックの前処理(出力先ディレクトリの作成など)
+      #     command: composer run prepare-check
+      # - run:
+      #     name: コーディング規約のチェック
+      #     command: composer run cs-check
+      # - run:
+      #     name: 静的解析の実行
+      #     command: composer run analyse
+      # - run:
+      #     name: テストの実行
+      #     command: composer run test
+      # - run:
+      #     name: コードメトリクスを出力
+      #     command: composer run metrics
+      # - run:
+      #     name: APIドキュメントを出力
+      #     command: composer run doc
+      - store_artifacts:
+          path: output
+          destination: /
+  install_ansible:
+    description: Ansibleのインストール処理
+    steps:
+      - deploy:
+          name: dirmngrパッケージをインストール
+          command: sudo apt-get install -y dirmngr
+      - deploy:
+          name: APTラインを追加
+          command: echo "deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main" | sudo tee /etc/apt/sources.list.d/ansible.list
+      - deploy:
+          name: GPGキーを追加
+          command: sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367
+      - deploy:
+          name: キャッシュを更新
+          command: sudo apt-get update
+      - deploy:
+          name: Ansibleをインストール
+          command: sudo apt-get install -y ansible
+
+# -------------
+# ジョブの設定
+# -------------
+jobs:
+  build:
+    executor: *default_executor
+    steps:
+      - checkout
+      - run:
+          name: composerの更新
+          command: sudo composer self-update
+      - restore_cache:
+          keys:
+          - dependencies-{{ checksum "composer.json" }}
+          - dependencies-
+      - run:
+          name: 依存パッケージのインストール
+          command: composer install -n --prefer-dist
+      - run:
+          name: 依存パッケージインストール後の後処理
+          command: composer run-script post-install-cmd --no-interaction
+      - save_cache:
+          paths:
+            - ./vendor
+          key: dependencies-{{ checksum "composer.json" }}
+      - execute_test
+      - persist_to_workspace:
+          root: ~/repo
+          paths: .
+  deploy_stg:
+    executor: *default_executor
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - before_deploy
+      - deploy:
+          name: デプロイ先のホスト公開鍵を追加する
+          command: ssh-keyscan ${STG_HOST:-127.0.0.1} -p ${STG_PORT:-22} >> ~/.ssh/known_hosts
+      - deploy:
+          name: ステージング環境にデプロイ
+          command: |
+            echo "Deploy staging!"
+            # ansible-playbook -i ${STG_HOST}:${STG_PORT:-22}, --user=${STG_USER} deploy.yml
+            # ssh ${PROD_USER}@${STG_HOST} -p ${PROD_PORT:-22} "<remote deploy command>"
+            # rsync -av --delete --exclude='.git' --exclude='.circleci' ./ ${STG_USER}@${STG_HOST}:~/public/
+  deploy_prod:
+    executor: *default_executor
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - before_deploy
+      - deploy:
+          name: デプロイ先のホスト公開鍵を追加する
+          command: ssh-keyscan ${PROD_HOST:-127.0.0.1} -p ${PROD_PORT:-22} >> ~/.ssh/known_hosts
+      - deploy:
+          name: 本番環境にデプロイ
+          command: |
+            echo "Deploy production!"
+            # ansible-playbook -i ${PROD_HOST}:${PROD_PORT:-22}, --user=${PROD_USER} deploy.yml
+            # ssh ${PROD_USER}@${PROD_HOST} -p ${PROD_PORT:-22} "<remote deploy command>"
+            # rsync -av --delete --exclude='.git' --exclude='.circleci' ./ ${PROD_USER}@${PROD_HOST}:~/public/
+# -------------
+# ワークフローの設定
+# -------------
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - build
+      - deploy_stg:
+          requires:
+            - build
+          filters:
+            branches:
+              only: *staging_deploy_branches
+      - deploy_prod:
+          requires:
+            - build
+          filters:
+            branches:
+              only: *production_deploy_branches

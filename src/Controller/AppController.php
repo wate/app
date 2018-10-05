@@ -23,10 +23,19 @@ use Cake\Event\Event;
  * Add your application-wide methods in the class below, your controllers
  * will inherit them.
  *
- * @link https://book.cakephp.org/3.0/en/controllers.html#the-app-controller
+ * @link https://book.cakephp.org/3.0/ja/controllers.html#the-app-controller
  */
 class AppController extends Controller
 {
+    /**
+     * Enable AdminLTE theme
+     * @param  \Cake\Event\Event  $event イベント
+     * @return void
+     */
+    public function beforeRender(\Cake\Event\Event $event)
+    {
+        //$this->viewBuilder()->setTheme('AdminLTE');
+    }
 
     /**
      * Initialization hook method.
@@ -48,8 +57,40 @@ class AppController extends Controller
 
         /*
          * Enable the following component for recommended CakePHP security settings.
-         * see https://book.cakephp.org/3.0/en/controllers/components/security.html
+         * see https://book.cakephp.org/3.0/ja/controllers/components/security.html
          */
-        //$this->loadComponent('Security');
+        $this->loadComponent('Security');
+
+//        $this->loadComponent('Auth', [
+//            'authorize'=> 'Controller',
+//            'authenticate' => [
+//                'Form' => [
+//                    'fields' => [
+//                        'username' => 'email',
+//                        'password' => 'password'
+//                    ],
+//                ]
+//            ],
+//            'loginAction' => [
+//                'controller' => 'Users',
+//                'action' => 'login'
+//            ],
+//            'logoutAction' => [
+//                'controller' => 'Users',
+//                'action' => 'logout'
+//            ],
+//            'unauthorizedRedirect' => $this->referer()
+//        ]);
+//        $this->Auth->allow(['display', 'view', 'index']);
     }
+
+//    /**
+//     * 認可判定
+//     * @param \App\Model\Entity\User $user
+//     * @return bool
+//     */
+//    public function isAuthorized(\App\Model\Entity\User $user)
+//    {
+//        return false;
+//    }
 }

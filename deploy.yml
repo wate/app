@@ -1,0 +1,7 @@
+- name: アプリケーションのデプロイ
+  hosts: all
+  become: no
+  tasks:
+    - name: デプロイ処理の完了
+      debug:
+        msg: "Deployed!"
