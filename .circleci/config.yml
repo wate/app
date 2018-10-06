@@ -153,10 +153,11 @@ jobs:
       - deploy:
           name: ステージング環境にデプロイ
           command: |
-            echo "Deploy staging!"
-            # ansible-playbook -i ${STG_HOST}:${STG_PORT:-22}, --user=${STG_USER} deploy.yml
+            # ansible-playbook -i ${STG_HOST}:${STG_PORT:-22}, --user=${STG_USER} ./.circleci/deploy.yml
             # ssh ${PROD_USER}@${STG_HOST} -p ${PROD_PORT:-22} "<remote deploy command>"
             # rsync -av --delete --exclude='.git' --exclude='.circleci' ./ ${STG_USER}@${STG_HOST}:~/public/
+          environment:
+            ANSIBLE_CONFIG: ./.circleci/ansible.cfg
   deploy_prod:
     executor: *default_executor
     steps:
@@ -170,9 +171,12 @@ jobs:
           name: 本番環境にデプロイ
           command: |
             echo "Deploy production!"
-            # ansible-playbook -i ${PROD_HOST}:${PROD_PORT:-22}, --user=${PROD_USER} deploy.yml
+            # ansible-playbook -i ${PROD_HOST}:${PROD_PORT:-22}, --user=${PROD_USER} ./.circleci/deploy.yml
             # ssh ${PROD_USER}@${PROD_HOST} -p ${PROD_PORT:-22} "<remote deploy command>"
             # rsync -av --delete --exclude='.git' --exclude='.circleci' ./ ${PROD_USER}@${PROD_HOST}:~/public/
+          environment:
+            ANSIBLE_CONFIG: ./.circleci/ansible.cfg
+
 # -------------
 # ワークフローの設定
 # -------------

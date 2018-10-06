@@ -1,0 +1,19 @@
+- name: アプリケーションのデプロイ
+  hosts: all
+  become: no
+  tasks:
+    # - name: アプリケーションのデプロイ処理
+    #   synchronize:
+    #     src: ./
+    #     dest: "rsync://{{ lookup('env', 'DEPLOY_HOST') }}/{{ lookup('env', 'DEPLOY_PATH') }}/"
+    #     mode: push
+    #     archive: yes
+    #     delete: yes
+    #     recursive: yes
+    #     # perms: yes
+    #     rsync_opts:
+    #       - "--exclude='.git'"
+    #       - "--exclude='.circleci'"
+    - name: デプロイ処理の完了
+      debug:
+        msg: "Deployed!"
