@@ -153,6 +153,7 @@ jobs:
       - deploy:
           name: ステージング環境にデプロイ
           command: |
+            echo "Deploy staging!"
             # ansible-playbook -i ${STG_HOST}:${STG_PORT:-22}, --user=${STG_USER} ./.circleci/deploy.yml
             # ssh ${PROD_USER}@${STG_HOST} -p ${PROD_PORT:-22} "<remote deploy command>"
             # rsync -av --delete --exclude='.git' --exclude='.circleci' ./ ${STG_USER}@${STG_HOST}:~/public/
