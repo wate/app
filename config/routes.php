@@ -88,13 +88,18 @@ Router::scope('/', function (RouteBuilder $routes) {
 });
 
 /**
+ * 管理画面用のルーティング
+ * https://book.cakephp.org/3.0/ja/development/routing.html#prefix-routing
+ */
+// Router::prefix('admin', function ($routes) {
+//     $routes->fallbacks(DashedRoute::class);
+// });
+
+/**
  * If you need a different set of middleware or none at all,
  * open new scope and define routes there.
- *
- * ```
- * Router::scope('/api', function (RouteBuilder $routes) {
- *     // No $routes->applyMiddleware() here.
- *     // Connect API actions here.
- * });
- * ```
  */
+// Router::scope('/api', function (RouteBuilder $routes) {
+//     // No $routes->applyMiddleware() here.
+//     // Connect API actions here.
+// });
