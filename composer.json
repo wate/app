@@ -11,20 +11,24 @@
         "cakephp/plugin-installer": "^1.0",
         "dereuromark/cakephp-tools": "^1.5",
         "josegonzalez/cakephp-upload": "^4.0",
-        "josegonzalez/dotenv": "3.*",
         "maiconpinto/cakephp-adminlte-theme": "^1.0",
         "mobiledetect/mobiledetectlib": "2.*"
     },
     "require-dev": {
         "cakephp/bake": "^1.1",
         "cakephp/cakephp-codesniffer": "^3.0",
-        "cakephp/debug_kit": "^3.15",
-        "dereuromark/cakephp-ide-helper": "^0.12",
+        "cakephp/debug_kit": "^3.15.0",
+        "josegonzalez/dotenv": "3.*",
+        "phpunit/phpunit": "^5|^6",
+        "psy/psysh": "@stable",
         "league/factory-muffin": "^3.0",
         "league/factory-muffin-faker": "^2.0",
         "phpmetrics/phpmetrics": "^2.4",
-        "phpstan/phpstan": "^0.10",
-        "psy/psysh": "@stable"
+        "phpstan/phpstan": "^0.10"
+    },
+    "suggest": {
+        "markstory/asset_compress": "An asset compression plugin which provides file concatenation and a flexible filter system for preprocessing and minification.",
+        "dereuromark/cakephp-ide-helper": "After baking your code, this keeps your annotations in sync with the code evolving from there on for maximum IDE and PHPStan compatibility."
     },
     "autoload": {
         "psr-4": {
