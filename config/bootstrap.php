@@ -230,13 +230,3 @@ Configure::write('Theme', [
     'folder' => ROOT,
     'skin' => 'blue' // default is 'blue'
 ]);
-/*
- * CakePHP Tools Plugin
- * https://github.com/dereuromark/cakephp-tools
- */
-Plugin::load('Tools', ['bootstrap' => true]);
-/*
- * CakePHP Tools Plugin
- * https://github.com/FriendsOfCake/cakephp-upload
- */
-Plugin::load('Josegonzalez/Upload');
