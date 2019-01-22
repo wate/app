@@ -215,18 +215,4 @@ Type::build('timestamp')
  * CakePHP AdminLTE Theme
  * https://github.com/maiconpinto/cakephp-adminlte-theme
  */
-Plugin::load('AdminLTE', ['bootstrap' => true, 'routes' => true]);
-Configure::write('Theme', [
-    'title' => 'AdminLTE',
-    'logo' => [
-        'mini' => '<b>A</b>LT',
-        'large' => '<b>Admin</b>LTE'
-    ],
-    'login' => [
-        'show_remember' => false,
-        'show_register' => false,
-        'show_social' => false
-    ],
-    'folder' => ROOT,
-    'skin' => 'blue' // default is 'blue'
-]);
+Configure::load('adminlte', 'default');
