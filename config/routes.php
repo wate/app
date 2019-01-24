@@ -62,12 +62,18 @@ Router::scope('/', function (RouteBuilder $routes) {
      * its action called 'display', and we pass a param to select the view file
      * to use (in this case, src/Template/Pages/home.ctp)...
      */
-    $routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
+    $routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home'], ['_name' => 'Home']);
 
     /**
      * ...and connect the rest of 'Pages' controller's URLs.
      */
     $routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
+
+    /**
+     * 文字列で指定する場合のフォーマット
+     *
+     * [Plugin].[Prefix]/[Controller]::[action]
+     */
 
     /**
      * Connect catchall routes for all controllers.
@@ -92,12 +98,21 @@ Router::scope('/', function (RouteBuilder $routes) {
 });
 
 /**
+ * サムネイル表示用ルーティング
+ */
+//$routes->connect('/images/{id}/{width}x{height}', 'Images::thumbnail')
+//    ->setPatterns(['width' => '[0-9]+', 'height' => '[0-9]+']);
+
+/**
  * 管理画面用のルーティング
  * https://book.cakephp.org/3.0/ja/development/routing.html#prefix-routing
  */
-// Router::prefix('admin', function ($routes) {
-//     $routes->fallbacks(DashedRoute::class);
-// });
+//Router::prefix('admin', function ($routes) {
+//    $routes->prefix('features', function ($routes) {
+//        $routes->connect('/:controller');
+//    });
+//    $routes->fallbacks(DashedRoute::class);
+//});
 
 /**
  * If you need a different set of middleware or none at all,
