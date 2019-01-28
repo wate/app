@@ -15,8 +15,10 @@
 namespace App\Controller;
 
 use Cake\Controller\Controller;
-use Cake\Event\Event;
 use Cake\Core\Configure;
+use Cake\Event\Event;
+use Cake\Http\Middleware\CsrfProtectionMiddleware;
+use Cake\Http\Middleware\SecurityHeadersMiddleware;
 
 /**
  * Application Controller
@@ -84,6 +86,28 @@ class AppController extends Controller
 //            'unauthorizedRedirect' => $this->referer()
 //        ]);
 //        $this->Auth->allow(['display', 'view', 'index']);
+    }
+
+    public function middleware($middlewareQueue)
+    {
+        $csrfOptions = [
+//            'cookieName' => 'csrfToken',
+//            'expiry' => 0,
+//            'secure' => false,
+//            'httpOnly' => false,
+//            'field' => '_csrfToken'
+        ];
+        $middlewareQueue->add(new CsrfProtectionMiddleware($csrfOptions));
+        $securityHeaders = new SecurityHeadersMiddleware();
+//        $securityHeaders
+//            ->setCrossDomainPolicy()
+//            ->setReferrerPolicy()
+//            ->setXFrameOptions()
+//            ->setXssProtection()
+//            ->noOpen()
+//            ->noSniff();
+        $middlewareQueue->add($securityHeaders);
+        return $middlewareQueue;
     }
 
 //    /**
