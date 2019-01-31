@@ -72,8 +72,8 @@ class AppController extends Controller
 //                //],
 //                'Form' => [
 //                    'fields' => [
-//                        'username' => 'email',
-//                        'password' => 'password'
+//                        'username' => 'username_column',
+//                        'password' => 'password_column'
 //                    ],
 //                    //'userModel' => 'Userss',
 //                    //'finder' => 'all'
