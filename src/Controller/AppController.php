@@ -63,28 +63,47 @@ class AppController extends Controller
          * Enable the following component for recommended CakePHP security settings.
          * see https://book.cakephp.org/3.0/ja/controllers/components/security.html
          */
-        //$this->loadComponent('Security');
-
-//        $this->loadComponent('Auth', [
-//            'authorize'=> 'Controller',
+//        $authConfig = [
+//            //'authorize' => 'Controller',
 //            'authenticate' => [
+//                //AuthComponent::ALL => [
+//                //    'userModel' => 'Users',
+//                //    'finder' => 'all'
+//                //],
 //                'Form' => [
 //                    'fields' => [
 //                        'username' => 'email',
 //                        'password' => 'password'
 //                    ],
-//                ]
+//                    //'userModel' => 'Userss',
+//                    //'finder' => 'all'
+//                ],
+//                //'Basic' => [],
 //            ],
 //            'loginAction' => [
 //                'controller' => 'Users',
 //                'action' => 'login'
 //            ],
-//            'logoutAction' => [
+//            //ログイン後のリダイレクト先
+//            'loginRedirect' => [
 //                'controller' => 'Users',
-//                'action' => 'logout'
+//                'action' => 'dashbord'
 //            ],
-//            'unauthorizedRedirect' => $this->referer()
-//        ]);
+//            //ログアウト後のリダイレクト先
+//            'logoutRedirect' => [
+//                'controller' => 'Users',
+//                'action' => 'login'
+//            ],
+//            //未認証時のリダイレクト先
+//            'unauthorizedRedirect' => [
+//                'controller' => 'Users',
+//                'action' => 'login'
+//            ],
+//            //'authError' => 'Did you really think you are allowed to see that?',
+//            //'storage' => 'Session'
+//        ];
+//        $this->loadComponent('Auth', $authConfig);
+//        //未認証時でもアクセスを許可するメソッド
 //        $this->Auth->allow(['display', 'view', 'index']);
     }
 
