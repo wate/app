@@ -41,6 +41,7 @@ use Cake\Core\Configure;
                 <a href="<?= $this->Url->build(); ?>"><?= Configure::read('Theme.logo.large') ?></a>
             </div>
             <!-- /.login-logo -->
+            <?= $this->Flash->render() ?>
             <div class="login-box-body">
                 <p class="login-box-msg">
                     ユーザー名とパスワードを入力して<br>
