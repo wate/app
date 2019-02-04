@@ -102,7 +102,7 @@ msgid "Username or password is incorrect"
 msgstr "Username or password is incorrect"
 
 msgid "You are not authorized to access that location."
-msgstr "ログインを行っていません"
+msgstr "ログインセッションの有効期限が切れました"
 
 ## Elements
 
