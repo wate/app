@@ -1,6 +1,6 @@
 - name: アプリケーションのデプロイ
   hosts: all
-  become: no
+  become: false
   tasks:
     # - name: アプリケーションのデプロイ処理
     #   synchronize:
