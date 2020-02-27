@@ -80,7 +80,7 @@ try {
 if (file_exists(__DIR__ . DS . 'environments' . DS . 'common.php')) {
     Configure::load('environments/common', 'default');
 }
-switch (env('CAKE_ENV', 'development')) {
+switch (env('CAKE_ENV', 'production')) {
     case 'production':
         Configure::load('environments/production', 'default');
         break;

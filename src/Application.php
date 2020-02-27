@@ -34,6 +34,8 @@ class Application extends BaseApplication
      */
     public function bootstrap()
     {
+        $this->addPlugin('AdminLTE');
+
         // Call parent to load bootstrap from files.
         parent::bootstrap();
 
@@ -54,7 +56,6 @@ class Application extends BaseApplication
         if (Configure::read('debug')) {
             $this->addPlugin(\DebugKit\Plugin::class);
         }
-        $this->addPlugin('AdminLTE');
     }
 
     /**
