@@ -30,22 +30,21 @@ deploy_ssh_keys: &deploy_ssh_keys
 # デフォルトの動作環境
 # ※executorsに定義されている環境のうちデフォルトで利用する環境を設定する
 # -------------
-default_executor: &default_executor php72
+default_executor: &default_executor php73
 
 # -------------
 # 動作環境の設定
 # -------------
 executors:
+  php73:
+    docker:
+      # https://hub.docker.com/u/circleci/
+      - image: circleci/php:7.3-node-browsers
+      # - image: circleci/mysql:5.7-ram
   php72:
     docker:
       # https://hub.docker.com/u/circleci/
       - image: circleci/php:7.2-node-browsers
-      # - image: circleci/mysql:5.7-ram
-    working_directory: ~/repo
-  php71:
-    docker:
-      # https://hub.docker.com/u/circleci/
-      - image: circleci/php:7.1-node-browsers
       # - image: circleci/mysql:5.7-ram
     working_directory: ~/repo
 

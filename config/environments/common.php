@@ -13,10 +13,17 @@ return [
             'username' => 'app_test',
             'password' => 'app_test_P455w0rd',
             'database' => 'app_test',
-            //'encoding' => 'utf8mb4',
+            // 'encoding' => 'utf8mb4',
+            // 'log' => false,
         ],
     ],
     'Error' => [
         'errorLevel' => E_ALL & ~E_USER_DEPRECATED,
-    ]
+        // 'log' => true,
+        // 'trace' => true,
+    ],
+    'Asset' => [
+        // 'timestamp' => true,
+        // 'cacheTime' => '+1 year'
+    ],
 ];
