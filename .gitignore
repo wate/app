@@ -40,7 +40,7 @@ nbproject/*
 .sass-cache/
 
 #######################
-
-doc/
+/.gitkeep
+memmo/
 wiki/
 output/
