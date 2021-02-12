@@ -6,7 +6,7 @@
     "license": "MIT",
     "require": {
         "php": ">=5.6",
-        "cakephp/cakephp": "3.9.*",
+        "cakephp/cakephp": "^3.9",
         "cakephp/migrations": "^2.0.0",
         "cakephp/plugin-installer": "^1.0",
         "fzaninotto/faker": "@stable",
@@ -18,7 +18,6 @@
         "cakephp/bake": "^1.9.0",
         "cakephp/cakephp-codesniffer": "^3.0",
         "cakephp/debug_kit": "^3.17.0",
-        "phpmetrics/phpmetrics": "@stable",
         "phpstan/phpstan": "@stable",
         "phpunit/phpunit": "^5|^6",
         "psy/psysh": "@stable"
@@ -41,7 +40,6 @@
     "scripts": {
         "post-install-cmd": "App\\Console\\Installer::postInstall",
         "post-create-project-cmd": "App\\Console\\Installer::postInstall",
-        "post-autoload-dump": "Cake\\Composer\\Installer\\PluginInstaller::postAutoloadDump",
         "test": "echo 'Run execute test command here'",
         "doc": "echo 'Run generate document command here'",
         "cs-check": "phpcs --colors -p -s --standard=vendor/cakephp/cakephp-codesniffer/CakePHP src/",
@@ -53,8 +51,7 @@
             "@cs-check",
             "@analyse"
         ],
-        "cs-fix": "phpcbf --colors --standard=vendor/cakephp/cakephp-codesniffer/CakePHP src/",
-        "metrics": "phpmetrics src/ --report-html=output/metrics"
+        "cs-fix": "phpcbf --colors --standard=vendor/cakephp/cakephp-codesniffer/CakePHP src/"
     },
     "prefer-stable": true,
     "config": {
