@@ -29,7 +29,7 @@ msgid "Delete"
 msgstr "削除"
 
 msgid "Add"
-msgstr "追加する"
+msgstr "新規登録"
 
 msgid "Back"
 msgstr "戻る"
