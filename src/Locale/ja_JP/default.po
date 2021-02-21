@@ -1,8 +1,5 @@
-
-## --------------
-## AdminLTE
-## --------------
-## Template index.ctp
+msgid "Information"
+msgstr "情報"
 
 msgid "New"
 msgstr "新規登録"
@@ -11,7 +8,7 @@ msgid "List"
 msgstr "一覧"
 
 msgid "Search"
-msgstr "検索キーワード"
+msgstr "検索"
 
 msgid "Fill in to start search"
 msgstr "検索キーワードを入力してください"
@@ -31,16 +28,11 @@ msgstr "編集"
 msgid "Delete"
 msgstr "削除"
 
-msgid "Are you sure you want to delete # {0}?"
-msgstr "「{0}」を削除してよろしいですか？"
-
-## Template add.ctp
-
 msgid "Add"
 msgstr "追加する"
 
 msgid "Back"
-msgstr "一覧に戻る"
+msgstr "戻る"
 
 msgid "Form"
 msgstr "フォーム"
@@ -48,47 +40,64 @@ msgstr "フォーム"
 msgid "Save"
 msgstr "保存する"
 
-
-## Template edit.ctp
-
 msgid "Edit"
 msgstr "編集"
-
-
-## Template view.ctp
 
 msgid "Information"
 msgstr "表示"
 
+msgid "Submit"
+msgstr "送信"
 
-## Controller
+msgid "Home"
+msgstr "ホーム"
 
 msgid "The {0} has been saved."
-msgstr "{0}を保存しました"
+msgstr "{0}を保存しました。"
 
 msgid "The {0} could not be saved. Please, try again."
-msgstr "{0}の保存に失敗しました"
+msgstr "{0}の保存に失敗しました、もう一度お試しください。"
+
+msgid "Are you sure you want to delete # {0}?"
+msgstr "「{0}」を削除してよろしいですか？"
 
 msgid "The {0} has been deleted."
-msgstr "{0}を削除しました"
+msgstr "{0}を削除しました。"
 
 msgid "The {0} could not be deleted. Please, try again."
-msgstr "{0} não foi excluído. Por favor, tente novamente."
-
-
-## Login
-
-msgid "Sign in to start your session"
-msgstr "ログインしてください"
+msgstr "{0}を削除できませんでした、もう一度お試しください。"
 
 msgid "OR"
 msgstr "または"
 
-msgid "Sign in using Facebook"
-msgstr "Facebookアカウントでログインする"
+msgid "Alert"
+msgstr ""
 
-msgid "Sign in using Google+"
-msgstr "Google+アカウントでログインする"
+msgid "Click here to change the file."
+msgstr "クリックしてファイルを選択してください"
+
+
+## ---------
+## ログイン
+## ---------
+
+msgid "Sign in to start your session"
+msgstr "ログインしてください"
+
+msgid "Please enter your username and password"
+msgstr "ユーザー名とパスワードを入力してください"
+
+msgid "Username or password is incorrect"
+msgstr "ユーザー名またはパスワードが正しくありません"
+
+msgid "Invalid credentials, try again"
+msgstr "ログイン情報に誤りがあります、もう一度お試しください。"
+
+msgid "Login Name"
+msgstr "ログイン名"
+
+msgid "Login Password"
+msgstr "ログインパスワード"
 
 msgid "I forgot my password"
 msgstr "パスワードを忘れた方は"
@@ -96,25 +105,149 @@ msgstr "パスワードを忘れた方は"
 msgid "Register a new membership"
 msgstr "会員登録を行う"
 
-msgid "Remember Me"
-msgstr "ログイン情報を記憶する"
+msgid "Sign in using Facebook"
+msgstr "Facebookアカウントでログインする"
+
+msgid "Sign in using Google+"
+msgstr "Google+アカウントでログインする"
+
+msgid "Login"
+msgstr "ログイン"
 
 msgid "Sign In"
 msgstr "ログインする"
 
-msgid "Username or password is incorrect"
-msgstr "Username or password is incorrect"
+msgid "Remember Me"
+msgstr "ログイン情報を記憶する"
 
-msgid "You are not authorized to access that location."
-msgstr "ログインセッションの有効期限が切れました"
+## ---------
+## 項目名
+## ---------
 
-## Elements
+msgid "Id"
+msgstr "ID"
 
-msgid "Alert"
-msgstr "Alert"
+msgid "Code"
+msgstr "コード"
 
+msgid "Subject"
+msgstr "件名"
 
-## Helpers
+msgid "Title"
+msgstr "タイトル"
 
-msgid "Click here to change the file."
-msgstr "クリックしてファイルを選択してください"
+msgid "Name"
+msgstr "名前"
+
+msgid "Kana"
+msgstr "フリガナ"
+
+msgid "Division Name"
+msgstr "部署名"
+
+msgid "Position Name"
+msgstr "役職名"
+
+msgid "Person Name"
+msgstr "担当者名"
+
+msgid "Person Kana"
+msgstr "担当者名(カナ)"
+
+msgid "Zipcode"
+msgstr "郵便番号"
+
+msgid "Prefecture"
+msgstr "都道府県"
+
+msgid "Addr1"
+msgstr "住所(市町村・番地)"
+
+msgid "Addr2"
+msgstr "住所(建物名・部屋番号)"
+
+msgid "Tel"
+msgstr "電話番号"
+
+msgid "Fax"
+msgstr "FAX番号"
+
+msgid "Email"
+msgstr "メールアドレス"
+
+msgid "Status"
+msgstr "ステータス"
+
+msgid "Detail"
+msgstr "詳細"
+
+msgid "Comment"
+msgstr "備考"
+
+## ---------
+## 項目名(日付/時刻/日時)
+## ---------
+
+msgid "Created"
+msgstr "登録日時"
+
+msgid "Modified"
+msgstr "更新日時"
+
+## ---------
+## 項目名(数値)
+## ---------
+
+msgid "Price"
+msgstr "価格"
+
+msgid "Quantity"
+msgstr "数量"
+
+msgid "Tax"
+msgstr "消費税"
+
+msgid "Tax Rate"
+msgstr "税率"
+
+msgid "Amount"
+msgstr "金額"
+
+msgid "Sort Key"
+msgstr "表示順序"
+
+msgid "Quantity"
+msgstr "優先順位"
+
+msgid "Total"
+msgstr "合計"
+
+## ---------
+## 項目名(真偽)
+## ---------
+
+msgid "Draft"
+msgstr "下書き"
+
+msgid "Draft"
+msgstr "下書き"
+
+msgid "Locked"
+msgstr "ロック"
+
+msgid "Completed"
+msgstr "完了"
+
+## ---------
+## 選択値(真偽)
+## ---------
+
+msgid "Yes"
+msgstr "はい"
+
+msgid "No"
+msgstr "いいえ"
+
+## ---------
+## システム
+## ---------

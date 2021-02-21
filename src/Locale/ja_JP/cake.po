@@ -1,0 +1,214 @@
+msgid "Error"
+msgstr "エラー"
+
+msgid "The requested address {0} was not found on this server."
+msgstr ""
+
+msgid "You are not authorized to access that location."
+msgstr "あなたはアクセスする権限がありません"
+
+msgid "Missing CSRF token cookie"
+msgstr "CSRFトークンCookieがありません"
+
+msgid "CSRF token mismatch."
+msgstr "CSRFトークンが一致しません"
+
+msgid "Not Found"
+msgstr "ありません"
+
+msgid "An Internal Error Has Occurred."
+msgstr "内部エラーが発生しました"
+
+msgid "The requested file contains `..` and will not be read."
+msgstr "要求されたファイルには「 . . 」が含まれており、読み込まれません。"
+
+msgid "The requested file was not found"
+msgstr "要求されたファイルが見つかりませんでした"
+
+msgid "{0,number,#,###.##} KB"
+msgstr ""
+
+msgid "{0,number,#,###.##} MB"
+msgstr ""
+
+msgid "{0,number,#,###.##} GB"
+msgstr ""
+
+msgid "{0,number,#,###.##} TB"
+msgstr ""
+
+msgid "{0,number,integer} Byte"
+msgid_plural "{0,number,integer} Bytes"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "{0} from now"
+msgstr "今から{0}"
+
+msgid "{0} ago"
+msgstr "{0}前"
+
+msgid "{0} after"
+msgstr "{0}後"
+
+msgid "{0} before"
+msgstr "{0}前"
+
+msgid "just now"
+msgstr "たった今"
+
+msgid "about a second ago"
+msgstr "約1秒前"
+
+msgid "about a minute ago"
+msgstr "約1分前"
+
+msgid "about an hour ago"
+msgstr "約1時間前"
+
+msgid "about a day ago"
+msgstr "約1日前"
+
+msgid "about a week ago"
+msgstr "約1週間前"
+
+msgid "about a month ago"
+msgstr "約1ヶ月前"
+
+msgid "about a year ago"
+msgstr "約1年前"
+
+msgid "in about a second"
+msgstr "約1秒"
+
+msgid "in about a minute"
+msgstr "約1分"
+
+msgid "in about an hour"
+msgstr "約1時間"
+
+msgid "in about a day"
+msgstr "約1日"
+
+msgid "in about a week"
+msgstr "約1週間"
+
+msgid "in about a month"
+msgstr "約1ヶ月"
+
+msgid "in about a year"
+msgstr "約1年"
+
+msgid "today"
+msgstr "今日"
+
+msgid "%s ago"
+msgstr "%s前"
+
+msgid "on %s"
+msgstr ""
+
+msgid "{0} year"
+msgid_plural "{0} years"
+msgstr[0] "{0}年"
+msgstr[1] "{0}年"
+
+msgid "{0} month"
+msgid_plural "{0} months"
+msgstr[0] "{0}ヶ月"
+msgstr[1] "{0}ヶ月"
+
+msgid "{0} week"
+msgid_plural "{0} weeks"
+msgstr[0] "{0}週"
+msgstr[1] "{0}週"
+
+msgid "{0} day"
+msgid_plural "{0} days"
+msgstr[0] "{0}日"
+msgstr[1] "{0}日"
+
+msgid "{0} hour"
+msgid_plural "{0} hours"
+msgstr[0] "{0}時間"
+msgstr[1] "{0}時間"
+
+msgid "{0} minute"
+msgid_plural "{0} minutes"
+msgstr[0] "{0}分"
+msgstr[1] "{0}分"
+
+msgid "{0} second"
+msgid_plural "{0} seconds"
+msgstr[0] "{0}秒"
+msgstr[1] "{0}秒"
+
+msgid "This value is already in use"
+msgstr "この値はすでに使用されています"
+
+msgid "This value does not exist"
+msgstr "この値は存在しません"
+
+msgid "The count does not match {0}{1}"
+msgstr "{0}の{1}の数が一致しません"
+
+msgid "and"
+msgstr "と"
+
+msgid "This field is required"
+msgstr "この項目は必須項目です"
+
+msgid "This field cannot be left empty"
+msgstr "この項目は空白にできません。"
+
+msgid "The provided value is invalid"
+msgstr "入力内容に誤りがあります"
+
+msgid "Edit {0}"
+msgstr "編集 {0}"
+
+msgid "New {0}"
+msgstr "新規登録 {0}"
+
+msgid "Submit"
+msgstr "送信"
+
+msgid "Home"
+msgstr "ホーム"
+
+msgid "January"
+msgstr "1月"
+
+msgid "February"
+msgstr "2月"
+
+msgid "March"
+msgstr "3月"
+
+msgid "April"
+msgstr "4月"
+
+msgid "May"
+msgstr "5月"
+
+msgid "June"
+msgstr "6月"
+
+msgid "July"
+msgstr "7月"
+
+msgid "August"
+msgstr "8月"
+
+msgid "September"
+msgstr "9月"
+
+msgid "October"
+msgstr "10月"
+
+msgid "November"
+msgstr "11月"
+
+msgid "December"
+msgstr "12月"
+
