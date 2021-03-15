@@ -4,9 +4,6 @@ msgstr "エラー"
 msgid "The requested address {0} was not found on this server."
 msgstr ""
 
-msgid "You are not authorized to access that location."
-msgstr "あなたはアクセスする権限がありません"
-
 msgid "Missing CSRF token cookie"
 msgstr "CSRFトークンCookieがありません"
 
