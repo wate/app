@@ -1,3 +1,6 @@
+msgid "You are not authorized to access that location."
+msgstr "ログインセッションの有効期限が切れました"
+
 msgid "Information"
 msgstr "情報"
 
