@@ -11,6 +11,15 @@ return [
             // 'encoding' => 'utf8mb4',
             // 'log' => false,
         ],
+    //    // Debug Kit Databse Setting
+    //    'debug_kit' => [
+    //        'className' => 'Cake\Database\Connection',
+    //        'driver' => 'Cake\Database\Driver\Sqlite',
+    //        'database' => TMP . 'debug_kit.sqlite',
+    //        'encoding' => 'utf8',
+    //        'cacheMetadata' => true,
+    //        'quoteIdentifiers' => false,
+    //    ],
     ],
     'Error' => [
         // 'errorLevel' => E_ALL & ~E_USER_DEPRECATED,
