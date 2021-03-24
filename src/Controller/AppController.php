@@ -37,8 +37,10 @@ class AppController extends Controller
      */
     public function beforeRender(\Cake\Event\Event $event)
     {
-        $this->viewBuilder()->setTheme('AdminLTE');
-        $this->viewBuilder()->setClassName('AdminLTE.AdminLTE');
+        if (!$this->getRequest()->is('json') && !$this->getRequest()->is('xml')) {
+            $this->viewBuilder()->setTheme('AdminLTE');
+            $this->viewBuilder()->setClassName('AdminLTE.AdminLTE');
+        }
     }
 
     /**

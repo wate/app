@@ -43,6 +43,7 @@ return [
    //         'serialize' => true,
    //         'duration' => '+1 years',
    //         'url' => env('CACHE_CAKECORE_URL', null),
+   //         'mask' => 0664
    //     ],
    //     '_cake_model_' => [
    //         'className' => 'Cake\Cache\Engine\FileEngine',
@@ -51,6 +52,7 @@ return [
    //         'serialize' => true,
    //         'duration' => '+1 years',
    //         'url' => env('CACHE_CAKEMODEL_URL', null),
+   //         'mask' => 0664
    //     ],
    //     '_cake_routes_' => [
    //         'className' => 'Cake\Cache\Engine\FileEngine',
@@ -59,6 +61,7 @@ return [
    //         'serialize' => true,
    //         'duration' => '+1 years',
    //         'url' => env('CACHE_CAKEROUTES_URL', null),
+   //         'mask' => 0664
    //     ],
    // ],
    // 'Log' => [
